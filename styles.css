@@ -1,3 +1,26 @@
-.hide {
-    display: none;
+body {
+    margin: 0;
 }
+
+.hide {
+    display: none !important;
+}
+
+#startPage {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    background-color: #010101;
+    color: white;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    /* width: 100vw;*/
+    z-index: 1;
+}
+
+
+
