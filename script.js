@@ -43,7 +43,7 @@ function grabCityCords(city) {
 }
 
 function getWeather(latitude, longitude) {
-  let weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  let weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`;
 
   fetch(weatherApi)
     .then((res) => res.json())
