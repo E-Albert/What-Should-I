@@ -2,14 +2,21 @@ let homeButton = document.getElementById("homeButton");
 let homePage = document.getElementById("startPage");
 let formInfo = document.getElementById("formContext");
 let cityInput = document.getElementById("cityInput");
+let header = document.getElementById("header");
+let main = document.getElementById("main");
+let footer = document.getElementById("footer");
+
 
 let apiKey = "e681224f251edf9fe2b18dfc26040eac";
 
-homeButton.addEventListener("click", pageGone);
+homeButton.addEventListener("click", hideNSeek);
 
-function pageGone() {
+function hideNSeek() {
   console.log("the button was clicked");
-  homePage.classList.add("hide");
+    homePage.classList.add("hide");
+    header.classList.remove("hide");
+    main.classList.remove("hide");
+    footer.classList.remove("hide");
 }
 
 function formSubmitHandler(e) {
