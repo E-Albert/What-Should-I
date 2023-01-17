@@ -19,26 +19,38 @@ function formSubmitHandler(e) {
   let city = cityInput.value.trim();
   console.log(`Entered city: ${city}`);
   grabCityCords(city);
+  cityInput.value = "";
 }
 
 function grabCityCords(city) {
   console.log(`Getting coordinates for: ${city}`);
 
-    let geoApi = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apiKey}`;
-    
-    fetch(geoApi)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            let latitude = data[0].lat;
-            let longitude = data[0].lon
+  let geoApi = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apiKey}`;
 
-            console.log(`The latitude of ${city} is: ${latitude}`)
-            console.log(`The longitude of ${city} is: ${longitude}`)
+  fetch(geoApi)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      let latitude = data[0].lat;
+      let longitude = data[0].lon;
 
-        })
-        .catch(err => console.log(err))
-    
+      console.log(`The latitude of ${city} is: ${latitude}`);
+      console.log(`The longitude of ${city} is: ${longitude}`);
+
+      getWeather(latitude, longitude);
+    })
+    .catch((err) => console.log(err));
+}
+
+function getWeather(latitude, longitude) {
+  let weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+  fetch(weatherApi)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => console.log(err));
 }
 
 formInfo.addEventListener("submit", formSubmitHandler);
