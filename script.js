@@ -56,6 +56,8 @@ function getWeather(latitude, longitude) {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
+      let temp = data.main.temp
+      console.log(`The temperature is ${temp} degrees farenheit`)
     })
     .catch((err) => console.log(err));
 }
