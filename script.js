@@ -2,6 +2,7 @@ let homeButton = document.getElementById("homeButton");
 let homePage = document.getElementById("startPage");
 let formInfo = document.getElementById("formContext");
 let cityInput = document.getElementById("cityInput");
+let activityInput = document.getElementById("activityInput");
 let header = document.getElementById("header");
 let main = document.getElementById("main");
 let footer = document.getElementById("footer");
@@ -75,15 +76,9 @@ function initMap() {
     zoom: 4,
     center: uluru,
   });
-  // The marker, positioned at Uluru
-  const marker = new google.maps.Marker({
-    position: uluru,
-    map: map,
-  });
+  
 }
 
 window.initMap = initMap;
-
-
 
 formInfo.addEventListener("submit", formSubmitHandler);
