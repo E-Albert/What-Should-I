@@ -47,6 +47,7 @@ function grabCityCords(city) {
       console.log(`The longitude of ${city} is: ${longitude}`);
 
       getWeather(latitude, longitude);
+      initMap(latitude, longitude);
     })
     .catch((err) => console.log(err));
 }
@@ -68,13 +69,13 @@ function getWeather(latitude, longitude) {
 
 
 // Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  const uluru = { lat: -25.344, lng: 131.031 };
-  // The map, centered at Uluru
+function initMap(latitude, longitude) {
+  
+  
+  // The map centered at user city
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
-    center: uluru,
+    zoom: 12,
+    center: {lat: latitude, lng: longitude}
   });
   
 }
