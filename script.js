@@ -40,14 +40,18 @@ function grabCityCords(city) {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      let latitude = data[0].lat;
-      let longitude = data[0].lon;
+      let latitude = parseFloat(data[0].lat);
+      let longitude = parseFloat(data[0].lon);
+
+      console.log(typeof latitude)
+      console.log(typeof longitude)
 
       console.log(`The latitude of ${city} is: ${latitude}`);
       console.log(`The longitude of ${city} is: ${longitude}`);
 
       getWeather(latitude, longitude);
       initMap(latitude, longitude);
+      findPlaces(latitude, longitude);
     })
     .catch((err) => console.log(err));
 }
@@ -70,14 +74,23 @@ function getWeather(latitude, longitude) {
 
 // Initialize and add the map
 function initMap(latitude, longitude) {
-  
-  
+
   // The map centered at user city
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: {lat: latitude, lng: longitude}
   });
   
+}
+
+function findPlaces(latitude, longitude) {
+
+  let placesApi = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${mapKey}&location=${latitude},${longitude}&radius=50000&keyword=${activityInput}`
+
+  fetch(placesApi)
+    .then((res) => res.json())
+    .then((data) => { console.log(data) })
+    .catch(err => console.log(err))
 }
 
 window.initMap = initMap;
