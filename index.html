@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What Should I</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <section id="startPage">
-        <h1>What should I</h1>
-        <p>Eat | Play | Do</p>
-        <button id="homeButton">Click to decide</button>
+      <h1>What should I</h1>
+      <p>Eat | Play | Do</p>
+      <button id="homeButton">Click to decide</button>
     </section>
     <header id="header" class="hide">
-        <h1>What Should I?</h1>
+      <h1>What Should I?</h1>
     </header>
-    <main  id="main" class="hide">
-        <section id="form">
-            <form id="formContext">
-                <label>City: 
-                    <input id="cityInput" type="text" placeholder="Please enter a location">
-                </label>
-                <label> What would you like to do?
-                    <input id="activityInput" type="text" placeholder="What's on your mind?">
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        </section>
-        <section class="map">
-            <div id="map"></div>
-            </section>
-        <section class="weather">
-
-        </section>
-        <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2jsY4UMem8T06ilsqSs9W4YcS6IyCZac&libraries=places&callback=initMap&v=weekly"
-      defer
-    ></script>
+    <main id="main" class="hide">
+      <section id="form">
+        <form id="formContext">
+          <label
+            >City:
+            <input
+              id="cityInput"
+              type="text"
+              placeholder="Please enter a location"
+            />
+          </label>
+          <label>
+            What would you like to do?
+            <input
+              id="activityInput"
+              type="text"
+              placeholder="What's on your mind?"
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+      <section class="map">
+        <div id="map"></div>
+      </section>
+      <section class="weather"></section>
     </main>
     <footer id="footer" class="hide"></footer>
 
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2jsY4UMem8T06ilsqSs9W4YcS6IyCZac&libraries=places&callback=initMap&v=weekly"
+      defer
+    ></script>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
