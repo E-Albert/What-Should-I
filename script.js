@@ -92,7 +92,7 @@ function findPlaces(latitude, longitude) {
   console.log(activity)
   console.log(mapKey)
 
-  let placesApi = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${mapKey}&location=${latitude},${longitude}&radius=50000&type=${activity}`;
+  let placesApi = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${mapKey}&location=${latitude},${longitude}&radius=50000&keyword=${activity}`;
   
   fetch(placesApi)
     .then((res) => res.json())
