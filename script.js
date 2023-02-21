@@ -9,6 +9,8 @@ let footer = document.getElementById("footer");
 
 let apiKey = "e681224f251edf9fe2b18dfc26040eac";
 let mapKey = "AIzaSyB2jsY4UMem8T06ilsqSs9W4YcS6IyCZac";
+let map;
+let places = [];
 
 
 homeButton.addEventListener("click", hideNSeek);
@@ -77,14 +79,11 @@ function getWeather(latitude, longitude) {
 // Initialize and add the map
 function initMap(latitude, longitude) {
   // The map centered at user city
-  const map = new google.maps.Map(document.getElementById("map"), {
+  let map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: { lat: latitude, lng: longitude },
   });
-}
 
-function findPlaces(latitude, longitude) {
-  
   let activity = activityInput.value.trim()
 
   console.log(latitude)
@@ -93,13 +92,67 @@ function findPlaces(latitude, longitude) {
   console.log(mapKey)
 
   let placesApi = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${mapKey}&location=${latitude},${longitude}&radius=50000&keyword=${activity}`;
-  
+
   fetch(placesApi)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
+
+      data.results.forEach(place => {
+
+        const marker = new google.maps.Marker({
+          position: place.geometry.location,
+          map,
+          title: place.name,
+        })
+      
+
+
+
+      })
+
+
     })
     .catch((err) => console.log(err));
+}
+
+// function findPlaces(latitude, longitude) {
+  
+//   let activity = activityInput.value.trim()
+
+//   console.log(latitude)
+//   console.log(longitude)
+//   console.log(activity)
+//   console.log(mapKey)
+
+//   let placesApi = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${mapKey}&location=${latitude},${longitude}&radius=50000&keyword=${activity}`;
+  
+//   fetch(placesApi)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log(data);
+
+//       data.results.forEach(place => {
+        
+//         const marker = new google.maps.Marker({
+//           position: place.geometry.location,
+//           map,
+//           title: place.name,
+//         })
+//         console.log(marker)
+//         placeMarkers(marker)
+        
+
+        
+//       })
+
+
+//     })
+//     .catch((err) => console.log(err));
+// }
+
+function placeMarkers(marker) {
+  marker.setMap(map)
 }
 
 // function googleGeoCode(city) {
@@ -117,6 +170,10 @@ function findPlaces(latitude, longitude) {
 //     })
 //     .catch(err => console.log(err))
 // }
+
+// marker.addListener("click", function () {
+//   infoWindow.open(map, marker);
+// });
 
 window.initMap = initMap;
 
