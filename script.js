@@ -33,7 +33,7 @@ function formSubmitHandler(e) {
   // console.log(`Entered activity: ${activity}`)
   grabCityCords(city);
   // findPlaces(activity)
-  cityInput.value = "";
+  
 }
 
 function grabCityCords(city) {
@@ -98,6 +98,8 @@ function initMap(latitude, longitude) {
     .then((data) => {
       console.log(data);
 
+      
+
       data.results.forEach(place => {
 
         const marker = new google.maps.Marker({
@@ -114,6 +116,8 @@ function initMap(latitude, longitude) {
 
     })
     .catch((err) => console.log(err));
+  
+  activityInput.value = "";
 }
 
 // function findPlaces(latitude, longitude) {
