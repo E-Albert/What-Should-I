@@ -12,7 +12,6 @@ let mapKey = "AIzaSyB2jsY4UMem8T06ilsqSs9W4YcS6IyCZac";
 let map;
 let places = [];
 
-
 homeButton.addEventListener("click", hideNSeek);
 
 function hideNSeek() {
@@ -58,7 +57,7 @@ function grabCityCords(city) {
 
       getWeather(latitude, longitude);
       initMap(latitude, longitude);
-      findPlaces(latitude, longitude);
+      // findPlaces(latitude, longitude);
     })
     .catch((err) => console.log(err));
 }
@@ -84,12 +83,10 @@ function initMap(latitude, longitude) {
     center: { lat: latitude, lng: longitude },
   });
 
+  
+
   let activity = activityInput.value.trim()
 
-  console.log(latitude)
-  console.log(longitude)
-  console.log(activity)
-  console.log(mapKey)
 
   let placesApi = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${mapKey}&location=${latitude},${longitude}&radius=50000&keyword=${activity}`;
 
@@ -97,9 +94,6 @@ function initMap(latitude, longitude) {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-
-      
-
       data.results.forEach(place => {
 
         const marker = new google.maps.Marker({
@@ -107,18 +101,25 @@ function initMap(latitude, longitude) {
           map,
           title: place.name,
         })
-      
 
+        let name = place.name
+        console.log(name)
+        let address = place.vicinity
+        console.log(address)
+        let open = place.opening_hours.open_now
+        console.log(open)
+        let rating = place.rating
+        console.log(rating)
 
-
+        places.push([name, address, open, rating])
+        
       })
-
-
     })
     .catch((err) => console.log(err));
-  
-  activityInput.value = "";
-}
+    
+    activityInput.value = "";
+  }
+  console.log(places)
 
 // function findPlaces(latitude, longitude) {
   
@@ -155,9 +156,7 @@ function initMap(latitude, longitude) {
 //     .catch((err) => console.log(err));
 // }
 
-function placeMarkers(marker) {
-  marker.setMap(map)
-}
+
 
 // function googleGeoCode(city) {
 //   console.log(city)
