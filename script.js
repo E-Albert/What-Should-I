@@ -11,6 +11,9 @@ let apiKey = "e681224f251edf9fe2b18dfc26040eac";
 let mapKey = "AIzaSyB2jsY4UMem8T06ilsqSs9W4YcS6IyCZac";
 let map;
 let places = [];
+let markerArray = [];
+const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let labelIndex = 0;
 
 homeButton.addEventListener("click", hideNSeek);
 
@@ -100,26 +103,24 @@ function initMap(latitude, longitude) {
           position: place.geometry.location,
           map,
           title: place.name,
+          label: labels[labelIndex++ % labels.length]
         })
 
+
         let name = place.name
-        console.log(name)
         let address = place.vicinity
-        console.log(address)
         let open = place.opening_hours.open_now
-        console.log(open)
         let rating = place.rating
-        console.log(rating)
 
         places.push([name, address, open, rating])
-        
       })
     })
     .catch((err) => console.log(err));
     
     activityInput.value = "";
   }
-  console.log(places)
+  
+
 
 // function findPlaces(latitude, longitude) {
   
