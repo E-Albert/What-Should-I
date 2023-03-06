@@ -6,6 +6,7 @@ let activityInput = document.getElementById("activityInput");
 let header = document.getElementById("header");
 let main = document.getElementById("main");
 let footer = document.getElementById("footer");
+let placeInfo = document.getElementById("placeInfo");
 
 let apiKey = "e681224f251edf9fe2b18dfc26040eac";
 let mapKey = "AIzaSyB2jsY4UMem8T06ilsqSs9W4YcS6IyCZac";
@@ -103,7 +104,7 @@ function initMap(latitude, longitude) {
           position: place.geometry.location,
           map,
           title: place.name,
-          label: labels[labelIndex++ % labels.length]
+          label: labels[labelIndex++]
         })
 
 
@@ -113,6 +114,26 @@ function initMap(latitude, longitude) {
         let rating = place.rating
 
         places.push([name, address, open, rating])
+
+        let placeDiv = document.createElement("div")
+        let placeName = document.createElement("h2")
+        let placeAddress = document.createElement('p')
+        let placeOpen = document.createElement('p')
+        let placeRating = document.createElement('p')
+
+        placeName.textContent =`${labels[labelIndex++ % labels.length]} ${name}`
+        placeAddress.textContent = `${address}`
+        placeOpen.textContent = open? 'Currently Open' : 'Currently Closed'
+        placeRating.textContent = `Rating: ${rating}/5`
+
+        placeDiv.appendChild(placeName)
+        placeDiv.appendChild(placeAddress)
+        placeDiv.appendChild(placeOpen)
+        placeDiv.appendChild(placeRating)
+
+        placeInfo.appendChild(placeDiv)
+      
+
       })
     })
     .catch((err) => console.log(err));
