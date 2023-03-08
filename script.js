@@ -29,7 +29,8 @@ function hideNSeek() {
 function formSubmitHandler(e) {
   e.preventDefault();
   console.log("The form was submitted! You're doing great keep on going!");
-
+  placeInfo.innerHTML = ""
+  labelIndex = 0
   let city = cityInput.value.trim();
   // let activity = activityInput.value.trim()
   console.log(`Entered city: ${city}`);
@@ -104,9 +105,8 @@ function initMap(latitude, longitude) {
           position: place.geometry.location,
           map,
           title: place.name,
-          label: labels[labelIndex++]
+          label: labels[labelIndex++ % labels.length]
         })
-
 
         let name = place.name
         let address = place.vicinity
@@ -121,7 +121,7 @@ function initMap(latitude, longitude) {
         let placeOpen = document.createElement('p')
         let placeRating = document.createElement('p')
 
-        placeName.textContent =`${labels[labelIndex++ % labels.length]} ${name}`
+        placeName.textContent =`${marker.label}) ${name}`
         placeAddress.textContent = `${address}`
         placeOpen.textContent = open? 'Currently Open' : 'Currently Closed'
         placeRating.textContent = `Rating: ${rating}/5`
@@ -141,8 +141,6 @@ function initMap(latitude, longitude) {
     activityInput.value = "";
   }
   
-
-
 // function findPlaces(latitude, longitude) {
   
 //   let activity = activityInput.value.trim()
