@@ -27,3 +27,21 @@ body {
   width: 100%; /* The width is the width of the web page */
 }
 
+#placeInfo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px;
+    justify-content: space-around;
+}
+
+.infoDiv {
+    border: black 1px solid;
+    width: 190px;
+    height: 275px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 15px;
+    padding: 3px;
+    box-shadow: 10px 10px 5px;
+}

@@ -121,6 +121,8 @@ function initMap(latitude, longitude) {
         let placeOpen = document.createElement('p')
         let placeRating = document.createElement('p')
 
+        placeDiv.className = "infoDiv"
+
         placeName.textContent =`${marker.label}) ${name}`
         placeAddress.textContent = `${address}`
         placeOpen.textContent = open? 'Currently Open' : 'Currently Closed'
