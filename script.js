@@ -7,6 +7,8 @@ let header = document.getElementById("header");
 let main = document.getElementById("main");
 let footer = document.getElementById("footer");
 let placeInfo = document.getElementById("placeInfo");
+let weather = document.getElementById("weather");
+let weatherImage = document.getElementById("weatherImage")
 
 let apiKey = "e681224f251edf9fe2b18dfc26040eac";
 let mapKey = "AIzaSyB2jsY4UMem8T06ilsqSs9W4YcS6IyCZac";
@@ -74,10 +76,51 @@ function getWeather(latitude, longitude) {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      let temp = data.main.temp;
+      let temp = Math.floor(data.main.temp);
       console.log(`The temperature is ${temp} degrees farenheit`);
+
+      weatherGif(temp)
     })
     .catch((err) => console.log(err));
+}
+
+function weatherGif(temp) {
+  console.log(`It seems like its going to be ${temp} degrees.`)
+
+  let gifSrc;
+  let gifSentence;
+  let gifAlt
+
+  if (temp > 80) {
+    gifSrc = "/assets/sunwithglasses.gif";
+    gifAlt = "sun with glasses"
+    gifSentence = "Seems like it's hot outside. Better wear your sunscreen."
+  } else if (temp > 60) {
+    gifSrc = "/assets/niceweather.gif"
+    gifAlt = "the grass blowing in the wind"
+    gifSentence = "A nice day to be outdoors."
+  } else {
+    gifSrc = "/assets/coldshivering.gif"
+    gifAlt = "character shivering under a blanket"
+    gifSentence = "Its going to be cold! Don't forget to bring a sweater."
+  }
+
+  console.log(gifSrc)
+  console.log(gifSentence)
+  
+  let weatherHeader = document.createElement("h2")
+  let weatherSentence = document.createElement("p")
+  // let gifHolder = document.createElement("span")
+  // let gif = document.createElement("img")
+
+  weatherImage.src = gifSrc
+  weatherImage.alt = gifAlt
+  
+  weatherHeader.textContent = `${temp} ℉`
+  weatherSentence.textContent = `${gifSentence}`
+
+  weather.appendChild(weatherHeader)
+  weather.appendChild(weatherSentence)
 }
 
 // Initialize and add the map
