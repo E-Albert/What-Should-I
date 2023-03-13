@@ -146,21 +146,30 @@ function initMap(latitude, longitude) {
       console.log(data);
       data.results.forEach(place => {
 
+        let name = place.name
+        let address = place.vicinity
+        let open = place.opening_hours.open_now
+        let rating = place.rating
+        let location = place.geometry.location
+
         const marker = new google.maps.Marker({
-          position: place.geometry.location,
+          position: location,
           map,
-          title: place.name,
+          title: name,
           label: labels[labelIndex++ % labels.length]
         })
         
         let contentString = `
         <div id="infoWindowDiv">
-          <h2 id="infoWindowHeader">${place.name}</h2>
+          <h2 id="infoWindowName">${name}</h2>
+          <p id="infoWindowAddress">${address}</p>
+          <p id="infoWindowOpen">${open ? 'Currently Open' : 'Currently Closed'}</p>
+          <p id="infoWindowRating">Rating: ${rating}/5</p>
         </div>
         `
         const infowindow = new google.maps.InfoWindow({
           content: contentString,
-          ariaLabel: place.name,
+          ariaLabel: name,
         });
 
         marker.addListener("click", () => {
@@ -169,12 +178,6 @@ function initMap(latitude, longitude) {
             map,
           });
         });
-
-
-        let name = place.name
-        let address = place.vicinity
-        let open = place.opening_hours.open_now
-        let rating = place.rating
 
         places.push([name, address, open, rating])
 
@@ -197,8 +200,6 @@ function initMap(latitude, longitude) {
         placeDiv.appendChild(placeRating)
 
         placeInfo.appendChild(placeDiv)
-      
-
       })
     })
     .catch((err) => console.log(err));
