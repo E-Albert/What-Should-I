@@ -76,7 +76,7 @@ function getWeather(latitude, longitude) {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      let temp = Math.floor(data.main.temp);
+      let temp = Math.ceil(data.main.temp);
       console.log(`The temperature is ${temp} degrees farenheit`);
 
       weatherGif(temp)
@@ -152,6 +152,24 @@ function initMap(latitude, longitude) {
           title: place.name,
           label: labels[labelIndex++ % labels.length]
         })
+        
+        let contentString = `
+        <div id="infoWindowDiv">
+          <h2 id="infoWindowHeader">${place.name}</h2>
+        </div>
+        `
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          ariaLabel: place.name,
+        });
+
+        marker.addListener("click", () => {
+          infowindow.open({
+            anchor: marker,
+            map,
+          });
+        });
+
 
         let name = place.name
         let address = place.vicinity
