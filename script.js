@@ -98,7 +98,7 @@ function weatherGif(temp) {
     gifAlt = "sun with glasses"
     gifSentence = "Seems like it's hot outside. Better wear your sunscreen."
   } else if (temp > 60) {
-    gifSrc = "/assets/niceweather.gif"
+    gifSrc = "/assets/girlridingbike.gif"
     gifAlt = "the grass blowing in the wind"
     gifSentence = "A nice day to be outdoors."
   } else {
