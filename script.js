@@ -87,12 +87,14 @@ function getWeather(latitude, longitude) {
 function weatherGif(temp) {
   console.log(`It seems like its going to be ${temp} degrees.`)
 
+  weather.innerHTML = ""
+
   let gifSrc;
   let gifSentence;
   let gifAlt
 
   if (temp > 80) {
-    gifSrc = "/assets/sunwithglasses.gif";
+    gifSrc = "/assets/sunwithsunglasses.gif";
     gifAlt = "sun with glasses"
     gifSentence = "Seems like it's hot outside. Better wear your sunscreen."
   } else if (temp > 60) {
@@ -110,15 +112,15 @@ function weatherGif(temp) {
   
   let weatherHeader = document.createElement("h2")
   let weatherSentence = document.createElement("p")
-  // let gifHolder = document.createElement("span")
-  // let gif = document.createElement("img")
+  let gif = document.createElement("img")
 
-  weatherImage.src = gifSrc
-  weatherImage.alt = gifAlt
+  gif.src = gifSrc
+  gif.alt = gifAlt
   
   weatherHeader.textContent = `${temp} ℉`
   weatherSentence.textContent = `${gifSentence}`
 
+  weather.appendChild(gif)
   weather.appendChild(weatherHeader)
   weather.appendChild(weatherSentence)
 }
