@@ -129,11 +129,9 @@ function weatherGif(temp) {
 function initMap(latitude, longitude) {
   // The map centered at user city
   let map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
+    zoom: 11,
     center: { lat: latitude, lng: longitude },
   });
-
-  
 
   let activity = activityInput.value.trim()
 
@@ -200,6 +198,7 @@ function initMap(latitude, longitude) {
         placeDiv.appendChild(placeRating)
 
         placeInfo.appendChild(placeDiv)
+
       })
     })
     .catch((err) => console.log(err));
