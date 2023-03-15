@@ -1,5 +1,10 @@
+* {
+    font-family: 'Varela Round', 'Play', sans-serif;
+}
+
 body {
     margin: 0;
+    background-color: #FAF6EF;
 }
 
 .hide {
@@ -49,6 +54,10 @@ button:hover {
   color: #FAF6EF;
 }
 
+header {
+    text-align: center;
+}
+
 #map {
   height: 400px; /* The height is 400 pixels */
   width: 100%; /* The width is the width of the web page */
@@ -63,14 +72,14 @@ button:hover {
 }
 
 .infoDiv {
-    border: black 1px solid;
+    border: #F6B671 1px solid;
     width: 190px;
     height: 275px;
     border-radius: 20px;
     text-align: center;
     font-size: 15px;
     padding: 3px;
-    box-shadow: 10px 10px 5px;
+    box-shadow: 10px 10px 5px #E9DBB9;
 }
 
 #weather {

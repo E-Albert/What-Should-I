@@ -119,7 +119,7 @@ function weatherGif(temp) {
   gif.src = gifSrc
   gif.alt = gifAlt
   
-  weatherHeader.textContent = `${temp} ℉`
+  weatherHeader.textContent = `${temp} °F`
   weatherSentence.textContent = `${gifSentence}`
 
   weather.appendChild(gif)
