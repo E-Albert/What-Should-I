@@ -1,5 +1,6 @@
 let homeButton = document.getElementById("homeButton");
 let homePage = document.getElementById("startPage");
+let homePageText = document.getElementById("startPageText")
 let formInfo = document.getElementById("formContext");
 let cityInput = document.getElementById("cityInput");
 let activityInput = document.getElementById("activityInput");
@@ -23,6 +24,7 @@ homeButton.addEventListener("click", hideNSeek);
 function hideNSeek() {
   console.log("the button was clicked");
   homePage.classList.add("hide");
+  homePageText.classList.add("hide")
   header.classList.remove("hide");
   main.classList.remove("hide");
   footer.classList.remove("hide");
@@ -129,7 +131,7 @@ function weatherGif(temp) {
 function initMap(latitude, longitude) {
   // The map centered at user city
   let map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 11,
+    zoom: 10,
     center: { lat: latitude, lng: longitude },
   });
 

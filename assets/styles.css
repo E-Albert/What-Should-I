@@ -7,19 +7,46 @@ body {
 }
 
 #startPage {
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    background-color: #010101;
-    color: white;
+    background-image: url("/assets/confused2.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #FAF6EF;
     height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    /* width: 100vw;*/
-    z-index: 1;
+}
+
+#startPageText {
+  background-color: rgba(256,256,256, 0.1);
+  color: #5F3254;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+}
+
+button {
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: #E9DBB9;
+    color: #FAF6EF;
+    border-color: #E9DBB9;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #F26A53; /* Green */
+  color: #FAF6EF;
 }
 
 #map {
