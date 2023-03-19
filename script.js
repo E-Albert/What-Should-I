@@ -10,6 +10,8 @@ let footer = document.getElementById("footer");
 let placeInfo = document.getElementById("placeInfo");
 let weather = document.getElementById("weather");
 let weatherImage = document.getElementById("weatherImage")
+let guidelines = document.getElementById("preMapPara")
+let formSubmitButton = document.getElementById("formSubmit")
 
 let apiKey = "e681224f251edf9fe2b18dfc26040eac";
 let mapKey = "AIzaSyB2jsY4UMem8T06ilsqSs9W4YcS6IyCZac";
@@ -20,6 +22,9 @@ const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let labelIndex = 0;
 
 homeButton.addEventListener("click", hideNSeek);
+formSubmitButton.addEventListener("click", hideGuidelines)
+
+
 
 function hideNSeek() {
   console.log("the button was clicked");
@@ -28,6 +33,10 @@ function hideNSeek() {
   header.classList.remove("hide");
   main.classList.remove("hide");
   footer.classList.remove("hide");
+}
+
+function hideGuidelines() {
+  guidelines.classList.add("hide")
 }
 
 function formSubmitHandler(e) {

@@ -50,7 +50,7 @@ button {
 }
 
 button:hover {
-  background-color: #F26A53; /* Green */
+  background-color: #F26A53;
   color: #FAF6EF;
 }
 
@@ -63,10 +63,39 @@ header {
    display: flex;
    justify-content: center; 
    margin-bottom: 10px;
-   
 }
 
+#formSubmit {
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: #E9DBB9;
+    color: #FAF6EF;
+    border-color: #E9DBB9;
+    transition-duration: 0.4s;
+}
 
+#formSubmit:hover {
+    background-color: #F26A53;
+    color: #FAF6EF;
+}
+
+.input {
+    border: #F6B671 1px solid;
+}
+
+#preMapPara {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+
+#preMapPara h3 {
+    text-decoration: underline;
+}
 
 #map {
   height: 400px; /* The height is 400 pixels */
@@ -107,3 +136,4 @@ header {
 #infoWindowDiv {
    text-align: center;
 }
+
