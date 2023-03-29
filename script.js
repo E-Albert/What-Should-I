@@ -56,7 +56,7 @@ function formSubmitHandler(e) {
 function grabCityCords(city) {
   console.log(`Getting coordinates for: ${city}`);
 
-  let geoApi = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apiKey}`;
+  let geoApi = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apiKey}`;
 
   fetch(geoApi)
     .then((res) => res.json())
