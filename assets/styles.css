@@ -123,6 +123,7 @@ header {
     font-size: 15px;
     padding: 3px;
     box-shadow: 10px 10px 5px #E9DBB9;
+    overflow: scroll;
 }
 
 #weather {
