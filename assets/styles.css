@@ -44,7 +44,7 @@ button {
     cursor: pointer;
     padding: 5px;
     background-color: #E9DBB9;
-    color: #FAF6EF;
+    color: #5F3254;
     border-color: #E9DBB9;
     transition-duration: 0.4s;
 }
@@ -56,6 +56,7 @@ button:hover {
 
 header {
     text-align: center;
+    color: #5F3254;
 }
 
 #form {
@@ -63,6 +64,7 @@ header {
    display: flex;
    justify-content: center; 
    margin-bottom: 10px;
+   color:#5F3254
 }
 
 #formSubmit {
@@ -70,7 +72,7 @@ header {
     cursor: pointer;
     padding: 5px;
     background-color: #E9DBB9;
-    color: #FAF6EF;
+    color: #5F3254;
     border-color: #E9DBB9;
     transition-duration: 0.4s;
 }
@@ -82,6 +84,7 @@ header {
 
 .input {
     border: #F6B671 1px solid;
+    color: #5F3254;
 }
 
 #preMapPara {
@@ -91,6 +94,7 @@ header {
   transform: translate(-50%, -50%);
   z-index: 2;
   text-align: center;
+  color: #5F3254;
 }
 
 #preMapPara h3 {
@@ -124,6 +128,7 @@ header {
     padding: 3px;
     box-shadow: 10px 10px 5px #E9DBB9;
     overflow: scroll;
+    color: #5F3254;
 }
 
 #weather {
@@ -132,6 +137,7 @@ header {
     align-items: center;
     margin: 30px 0px;
     text-align: center;
+    color: #5F3254;
 }
 
 #weather img {
