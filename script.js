@@ -27,7 +27,6 @@ let labelIndex = 0;
 
 //FUNCTIONS
 function hideNSeek() {
-  console.log("the button was clicked");
   homePage.classList.add("hide");
   homePageText.classList.add("hide")
   header.classList.remove("hide");
