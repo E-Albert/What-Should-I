@@ -7,7 +7,6 @@ let cityInput = document.getElementById("cityInput");
 let activityInput = document.getElementById("activityInput");
 let header = document.getElementById("header");
 let main = document.getElementById("main");
-let footer = document.getElementById("footer");
 let placeInfo = document.getElementById("placeInfo");
 let weather = document.getElementById("weather");
 let weatherImage = document.getElementById("weatherImage")
@@ -33,7 +32,6 @@ function hideNSeek() {
   homePageText.classList.add("hide")
   header.classList.remove("hide");
   main.classList.remove("hide");
-  footer.classList.remove("hide");
 }
 
 function hideGuidelines() {
